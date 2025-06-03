@@ -1,7 +1,8 @@
 services:
   code-server:
-    image: code-server-latex:latest
-    container_name: code-server
+    build:
+      context: .
+    container_name: code-server-latex
     environment:
       - PUID=1000
       - PGID=1000
