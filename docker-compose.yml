@@ -1,0 +1,16 @@
+services:
+  code-server:
+    image: code-server-latex:latest
+    container_name: code-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+      - PROXY_DOMAIN=${PROXY_DOMAIN}
+      - DEFAULT_WORKSPACE=${DEFAULT_WORKSPACE}
+      - SUDO_PASSWORD=${SUDO_PASSWORD}
+    volumes:
+      - ${HOST_MOUNT_POINT}:/config
+    ports:
+      - ${PORT}:8443
+    restart: unless-stopped
